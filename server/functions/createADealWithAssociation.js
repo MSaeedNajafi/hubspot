@@ -6,8 +6,8 @@ const hubspotClient = new hubspot.Client({
 
 async function createADeal() {
   const properties = {
-    amount: "100.00",
-    closedate: "2023-12-07T16:50:06.678Z",
+    amount: "5000.00",
+    closedate: "2023-05-07T16:50:06.678Z",
     dealname: "New Deal Test",
     dealstage: "50548709",
     hubspot_owner_id: "254595320",
