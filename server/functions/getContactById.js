@@ -5,7 +5,7 @@ const hubspotClient = new hubspot.Client({
 });
 
 async function getAcontact() {
-  const contactId = "301";
+  const contactId = "351";
 
   try {
     const apiResponse = await hubspotClient.crm.contacts.basicApi.getById(

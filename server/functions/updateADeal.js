@@ -24,9 +24,7 @@ async function updateADeal() {
     );
     console.log(apiResponse);
   } catch (e) {
-    e.message === "HTTP request failed"
-      ? console.error(JSON.stringify(e.response, null, 2))
-      : console.error(e);
+    console.error(e);
   }
 }
 
