@@ -16,7 +16,11 @@ async function ReturnAllStagesOfApipeline() {
         pipelineId,
         archived
       );
-    console.log(apiResponse);
+    // console.log(apiResponse);
+    // const kk = apiResponse.map((deal) => console.log(deal.id));
+    for (let i = 0; i < apiResponse.results.length; i++) {
+      console.log(apiResponse.results[i].id);
+    }
   } catch (e) {
     console.error(e);
   }
