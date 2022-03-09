@@ -205,9 +205,7 @@ console.log(createADeal(hubspotClient));
  * 
 
 setPropertyByKeyOnDealByDealId(hubspotClient, key, value, dealId) {
-
   return 'succes'
-
 }
 
 deal stages:

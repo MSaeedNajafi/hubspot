@@ -8,6 +8,7 @@ async function setDealStageByDealId(hubspotClient, dealstage, dealId) {
     dealstage: dealstage,
     hubspot_owner_id: "254595320",
     pipeline: "14546628",
+    installer_job_url: "www.ggggg.com",
   };
   const SimplePublicObjectInput = { properties };
   const idProperty = undefined;
