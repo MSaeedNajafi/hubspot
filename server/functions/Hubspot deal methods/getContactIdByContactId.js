@@ -6,3 +6,5 @@ async function getContactByContactId(hubspotClient, contact_Id) {
   //   console.log(apiResponse.properties.email);
   return apiResponse.properties.email;
 }
+
+export { getContactByContactId };

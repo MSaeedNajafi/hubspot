@@ -1,17 +1,24 @@
 const hubspot = require("@hubspot/api-client");
 
-async function setPropertyByKeyOnDealByDealId(hubspotClient, dealId, value) {
+async function setPropertyByKeyOnDealByDealId(
+  hubspotClient,
+  consumer_email,
+  value,
+  key
+) {
   const properties = {
-    installer_job_url: value,
+    [key]: value,
   };
   const SimplePublicObjectInput = { properties };
 
+  const dealId = await getDealIdByEmailAddress(hubspotClient, consumer_email);
+
   try {
     const apiResponse = await hubspotClient.crm.deals.basicApi.update(
-      dealId,
+      dealId.id,
       SimplePublicObjectInput
     );
-    console.log(apiResponse);
+    // console.log(apiResponse);
 
     return "succes";
   } catch (e) {
@@ -27,7 +34,8 @@ const hubspotClient = new hubspot.Client({
 console.log(
   setPropertyByKeyOnDealByDealId(
     hubspotClient,
-    "4364421355",
-    "www.exapmle-url2022.com"
+    "",
+    "www.blablabla.com",
+    "installer_job_url"
   )
 );

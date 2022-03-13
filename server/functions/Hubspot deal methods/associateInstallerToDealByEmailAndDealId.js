@@ -1,3 +1,6 @@
+import { getContactIdByEmailAddress } from "./getContactIdByEmailAddress";
+import { associateContactByLabelHubspotcontactIdAndDealId } from "./associateContactByLabelHubspotcontactIdAndDealId";
+
 //=========Associate Installer To Deal By Email And DealId========
 async function associateInstallerToDealByEmailAndDealId(
   hubspotClient,
@@ -9,7 +12,7 @@ async function associateInstallerToDealByEmailAndDealId(
     const contact_id = await getContactIdByEmailAddress(hubspotClient, email);
 
     //associate Deals with Contats using label
-    const contact = await asscociateADealWithContact(
+    const contact = await associateContactByLabelHubspotcontactIdAndDealId(
       hubspotClient,
       dealId,
       contact_id,
@@ -20,3 +23,5 @@ async function associateInstallerToDealByEmailAndDealId(
     return e;
   }
 }
+
+export { associateInstallerToDealByEmailAndDealId };

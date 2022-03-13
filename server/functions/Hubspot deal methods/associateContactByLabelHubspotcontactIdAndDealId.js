@@ -1,5 +1,5 @@
 //=============Associate Contact by Label ============================
-async function asscociateADealWithContact(
+async function associateContactByLabelHubspotcontactIdAndDealId(
   hubspotClient,
   deal_id,
   contact_id,
@@ -22,3 +22,5 @@ async function asscociateADealWithContact(
     // console.error(e);
   }
 }
+
+export { associateContactByLabelHubspotcontactIdAndDealId };

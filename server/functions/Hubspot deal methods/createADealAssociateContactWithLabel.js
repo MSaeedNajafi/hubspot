@@ -1,14 +1,26 @@
+// import { associateConsumerToDealByEmailAndDealId } from "./associateConsumerToDealByEmailAndDealId.js";
+// import { associateInstallerToDealByEmailAndDealId } from "./associateInstallerToDealByEmailAndDealId.js";
+// import { associateAccountManagerToDealByEmailAndDealId } from "./associateAccountManagerToDealByEmailAndDealId.js";
+
 const hubspot = require("@hubspot/api-client");
 
 //========================create a deal========================
-async function createADeal(hubspotClient) {
+async function createADeal(
+  hubspotClient,
+  dealname,
+  dealstage,
+  hubspot_owner_id,
+  pipeline,
+  consumer_email,
+  installer_email
+) {
   const properties = {
     amount: "2000.00",
     closedate: "2023-05-07T16:50:06.678Z",
-    dealname: "Deal #1 - Real Deal",
-    dealstage: "50548709",
-    hubspot_owner_id: "254595320",
-    pipeline: "14546628",
+    dealname: dealname,
+    dealstage: dealstage,
+    hubspot_owner_id: hubspot_owner_id,
+    pipeline: pipeline,
   };
   const SimplePublicObjectInput = { properties };
 
@@ -20,21 +32,21 @@ async function createADeal(hubspotClient) {
 
     const contact1 = await associateConsumerToDealByEmailAndDealId(
       hubspotClient,
-      "persianthehunter@gmail.com",
+      consumer_email,
       apiResponse.id
     );
 
     const contact2 = await associateInstallerToDealByEmailAndDealId(
       hubspotClient,
-      "germanfarsitranslation@gmail.com",
+      installer_email,
       apiResponse.id
     );
 
-    const contact3 = await associateAccountManagerToDealByEmailAndDealId(
-      hubspotClient,
-      "najafisaeed@gmail.com",
-      apiResponse.id
-    );
+    // const contact3 = await associateAccountManagerToDealByEmailAndDealId(
+    //   hubspotClient,
+    //   "najafisaeed@gmail.com",
+    //   apiResponse.id
+    // );
 
     console.log(apiResponse.id);
     return "succes";
@@ -198,16 +210,29 @@ async function associateAccountManagerToDealByEmailAndDealId(
 const hubspotClient = new hubspot.Client({
   apiKey: "eu1-eb51-6b8c-4807-ab36-ceba8394ae97",
 });
-console.log(createADeal(hubspotClient));
+console.log(
+  createADeal(
+    hubspotClient,
+    "Consumer Journey 22",
+    "52692955",
+    "254595320",
+    "15399155",
+    "persianthehunter@gmail.com",
+    "germanfarsitranslation@gmail.com"
+  )
+);
+
+//4375581638 for Consumer Journey 2
+//4374970345 Consumer Journey 22
+
+// dealname: "Consumer Journey",
+// dealstage: "52692955",
+// hubspot_owner_id: "254595320",
+// pipeline: "15399155",
 
 /**
  * 
  * 
-
-setPropertyByKeyOnDealByDealId(hubspotClient, key, value, dealId) {
-  return 'succes'
-}
-
 deal stages:
 50548709
 50548710
@@ -220,7 +245,7 @@ deal stages:
 dealId:
 4364421355
 
-hubspot_owner_id: 
+hubspot_owner_id (user): 
 254595320
 
 pipeline: 

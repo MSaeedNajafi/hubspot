@@ -1,3 +1,6 @@
+import { getContactIdByEmailAddress } from "./getContactIdByEmailAddress";
+import { associateContactByLabelHubspotcontactIdAndDealId } from "./associateContactByLabelHubspotcontactIdAndDealId";
+
 //=======Associate Account Manager To Deal By Email And DealId========
 async function associateAccountManagerToDealByEmailAndDealId(
   hubspotClient,
@@ -20,3 +23,5 @@ async function associateAccountManagerToDealByEmailAndDealId(
     return e;
   }
 }
+
+export { associateAccountManagerToDealByEmailAndDealId };

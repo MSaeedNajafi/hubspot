@@ -21,3 +21,5 @@ async function getContactIdByEmailAddress(hubspotClient, email_address) {
   //   console.log(result);
   return result.results[0].id;
 }
+
+export { getContactIdByEmailAddress };
